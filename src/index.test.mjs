@@ -28,12 +28,12 @@ function power(ricky, monster) {
     deepStrictEqual(current, expected);
   });
 
-  // => Teste sincrono que ira falhar os poderes
-  // test('synchronous failing test', (t) => {
-  //   const expected = 10
-  //   const current = power(5, 1)
-  //   assert.strictEqual(current, expected);
-  // });
+ // => Teste sincrono que ira falhar os poderes
+  test('synchronous failing test', (t) => {
+    const expected = 10
+    const current = power(5, 1)
+    assert.strictEqual(current, expected);
+  });
 
   // => Teste assincrono usando callbacks
   test('callback passa', (context, done) => {
@@ -43,7 +43,7 @@ function power(ricky, monster) {
   });
 
 // ** Mocking**
-test('spies on a function', () => {
+test('spie dentro de uma funcao', () => {
   const power = mock.fn((ricky, monster) => {
     return ricky + monster;
   });
@@ -150,7 +150,7 @@ test('Test 4', async (t) => {
 // Ja esta num exemplo
 test('teste que cria atividade assincrona', (t) => {
   setImmediate(() => {
-    t.test('subtest that is created too late', (t) => {
+    t.test('subtest criado mto tarde', (t) => {
       throw new Error('error1');
     });
   });
